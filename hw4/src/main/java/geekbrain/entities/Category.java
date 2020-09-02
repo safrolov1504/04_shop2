@@ -1,4 +1,4 @@
-package geekbrain.categories;
+package geekbrain.entities;
 
 public class Category {
     private Long id;

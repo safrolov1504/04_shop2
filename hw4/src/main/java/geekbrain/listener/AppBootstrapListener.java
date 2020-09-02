@@ -1,7 +1,5 @@
 package geekbrain.listener;
 
-import geekbrain.categories.Category;
-import geekbrain.categories.CategoryRepository;
 import geekbrain.products.Product;
 import geekbrain.products.ProductRepository;
 import org.slf4j.Logger;

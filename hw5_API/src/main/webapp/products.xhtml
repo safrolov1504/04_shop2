@@ -16,10 +16,7 @@
 </h:head>
 
 <h:body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Products</a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,7 +25,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <h:link styleClass="nav-link" value="List" outcome="index"/>
+                    <h:link styleClass="nav-link" value="Products" outcome="products"/>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <h:link styleClass="nav-link" value="Categories" outcome="categories"/>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <h:link styleClass="nav-link" value="Cart" outcome="cart"/>
                 </li>
             </ul>
         </div>
@@ -68,7 +75,11 @@
                                              action="#{productController.editProduct(prod)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
                                              action="#{productController.deleteProduct(prod)}">
-                                <f:ajax event="click" render="productsForm"/>
+<!--                                <f:ajax event="click" render="productsForm"/>-->
+                            </h:commandButton>
+                            <h:commandButton value="Add to Cart" styleClass="btn btn-success"
+                                             action="#{cartController.add(prod)}">
+<!--                                <f:ajax event="click" render="productsForm"/>-->
                             </h:commandButton>
                         </h:column>
                     </h:dataTable>

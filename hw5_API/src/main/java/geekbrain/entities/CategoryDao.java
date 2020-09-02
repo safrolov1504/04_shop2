@@ -1,33 +1,29 @@
-package geekbrain.categories;
-
-import geekbrain.products.Product;
+package geekbrain.entities;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "categories")
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CategoryDao {
     private Long id;
 
-    @Column(length = 128, nullable = false)
     private String name;
 
-    @OneToMany(
-            mappedBy = "category",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
     private List<Product> products;
 
-    public Category() {
+    public CategoryDao() {
     }
 
-    public Category(Long id, String name) {
+    public CategoryDao(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public CategoryDao(Category category) {
+        this.id = category.getId();
+        this.name = category.getName();
+        if(!category.getProducts().isEmpty()){
+            this.products = category.getProducts();
+        }
     }
 
     public Long getId() {
@@ -53,4 +49,6 @@ public class Category {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+
 }

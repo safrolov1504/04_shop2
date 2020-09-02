@@ -1,9 +1,11 @@
-package geekbrain.categories;
+package geekbrain.repositories;
 
-import geekbrain.products.Product;
+import geekbrain.entities.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,13 +13,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
-@Named
+@Stateless
 public class CategoryRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(CategoryRepository.class);
@@ -25,8 +24,6 @@ public class CategoryRepository {
     @PersistenceContext(unitName = "ds")
     private EntityManager em;
 
-    @Inject
-    private UserTransaction ut;
 
     public CategoryRepository() {
     }
@@ -55,17 +52,14 @@ public class CategoryRepository {
         return Optional.empty();
     }
 
-    @Transactional
     public void insert(Category category) {
         em.persist(category);
     }
 
-    @Transactional
     public void update(Category category) {
         em.merge(category);
     }
 
-    @Transactional
     public void delete(long id) {
         Category category = em.find(Category.class, id);
         if (category != null) {

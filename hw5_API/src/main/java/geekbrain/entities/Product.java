@@ -1,6 +1,6 @@
-package geekbrain.products;
+package geekbrain.entities;
 
-import geekbrain.categories.Category;
+import geekbrain.entities.Category;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

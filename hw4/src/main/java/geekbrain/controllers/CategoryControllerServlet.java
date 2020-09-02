@@ -1,7 +1,6 @@
-package geekbrain.Servlents;
+package geekbrain.controllers;
 
-import geekbrain.categories.CategoryRepository;
-import geekbrain.products.ProductRepository;
+import geekbrain.entities.CategoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

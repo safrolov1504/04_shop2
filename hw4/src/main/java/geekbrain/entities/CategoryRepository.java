@@ -1,6 +1,4 @@
-package geekbrain.categories;
-
-import geekbrain.products.Product;
+package geekbrain.entities;
 
 import java.sql.*;
 import java.util.ArrayList;
