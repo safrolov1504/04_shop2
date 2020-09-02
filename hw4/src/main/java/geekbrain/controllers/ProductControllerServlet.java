@@ -1,4 +1,4 @@
-package geekbrain.Servlents;
+package geekbrain.controllers;
 
 import geekbrain.products.Product;
 import geekbrain.products.ProductRepository;
